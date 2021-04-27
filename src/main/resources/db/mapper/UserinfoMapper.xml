@@ -137,4 +137,11 @@
       user_ioc = #{userIoc,jdbcType=LONGVARCHAR}
     where user_id = #{userId,jdbcType=LONGVARCHAR}
   </update>
+
+  <select id="selectByPrimaryName" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from userinfo
+    where user_name = #{name,jdbcType=LONGVARCHAR}
+  </select>
 </mapper>
