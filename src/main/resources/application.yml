@@ -1,0 +1,8 @@
+spring:
+  elasticsearch:
+    rest:
+      uris: http://140.143.227.59:9200
+
+  datasource:
+    url: jdbc:sqlite:classpath:/db/es.spider
+
