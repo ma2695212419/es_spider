@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.laomag.es_spider.mapper.UserinfoMapper">
+  <resultMap id="BaseResultMap" type="co.laomag.es_spider.models.Userinfo">
+    <!--@mbg.generated-->
+    <!--@Table userinfo-->
+    <id column="user_id" jdbcType="LONGVARCHAR" property="userId" />
+    <result column="user_name" jdbcType="LONGVARCHAR" property="userName" />
+    <result column="user_password" jdbcType="LONGVARCHAR" property="userPassword" />
+    <result column="user_creadtime" jdbcType="LONGVARCHAR" property="userCreadtime" />
+    <result column="user_updatetime" jdbcType="LONGVARCHAR" property="userUpdatetime" />
+    <result column="user_email" jdbcType="LONGVARCHAR" property="userEmail" />
+    <result column="user_phone" jdbcType="LONGVARCHAR" property="userPhone" />
+    <result column="user_ioc" jdbcType="LONGVARCHAR" property="userIoc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    user_id, user_name, user_password, user_creadtime, user_updatetime, user_email, user_phone, 
+    user_ioc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from userinfo
+    where user_id = #{userId,jdbcType=LONGVARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from userinfo
+    where user_id = #{userId,jdbcType=LONGVARCHAR}
+  </delete>
+  <insert id="insert" parameterType="co.laomag.es_spider.models.Userinfo">
+    <!--@mbg.generated-->
+    insert into userinfo (user_id, user_name, user_password, 
+      user_creadtime, user_updatetime, 
+      user_email, user_phone, user_ioc
+      )
+    values (#{userId,jdbcType=LONGVARCHAR}, #{userName,jdbcType=LONGVARCHAR}, #{userPassword,jdbcType=LONGVARCHAR}, 
+      #{userCreadtime,jdbcType=LONGVARCHAR}, #{userUpdatetime,jdbcType=LONGVARCHAR}, 
+      #{userEmail,jdbcType=LONGVARCHAR}, #{userPhone,jdbcType=LONGVARCHAR}, #{userIoc,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="co.laomag.es_spider.models.Userinfo">
+    <!--@mbg.generated-->
+    insert into userinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userPassword != null">
+        user_password,
+      </if>
+      <if test="userCreadtime != null">
+        user_creadtime,
+      </if>
+      <if test="userUpdatetime != null">
+        user_updatetime,
+      </if>
+      <if test="userEmail != null">
+        user_email,
+      </if>
+      <if test="userPhone != null">
+        user_phone,
+      </if>
+      <if test="userIoc != null">
+        user_ioc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="userPassword != null">
+        #{userPassword,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="userCreadtime != null">
+        #{userCreadtime,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="userUpdatetime != null">
+        #{userUpdatetime,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="userEmail != null">
+        #{userEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="userPhone != null">
+        #{userPhone,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="userIoc != null">
+        #{userIoc,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="co.laomag.es_spider.models.Userinfo">
+    <!--@mbg.generated-->
+    update userinfo
+    <set>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="userPassword != null">
+        user_password = #{userPassword,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="userCreadtime != null">
+        user_creadtime = #{userCreadtime,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="userUpdatetime != null">
+        user_updatetime = #{userUpdatetime,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="userEmail != null">
+        user_email = #{userEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="userPhone != null">
+        user_phone = #{userPhone,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="userIoc != null">
+        user_ioc = #{userIoc,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=LONGVARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="co.laomag.es_spider.models.Userinfo">
+    <!--@mbg.generated-->
+    update userinfo
+    set user_name = #{userName,jdbcType=LONGVARCHAR},
+      user_password = #{userPassword,jdbcType=LONGVARCHAR},
+      user_creadtime = #{userCreadtime,jdbcType=LONGVARCHAR},
+      user_updatetime = #{userUpdatetime,jdbcType=LONGVARCHAR},
+      user_email = #{userEmail,jdbcType=LONGVARCHAR},
+      user_phone = #{userPhone,jdbcType=LONGVARCHAR},
+      user_ioc = #{userIoc,jdbcType=LONGVARCHAR}
+    where user_id = #{userId,jdbcType=LONGVARCHAR}
+  </update>
+</mapper>
