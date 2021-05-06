@@ -2,6 +2,8 @@ package co.laomag.es_spider.configs;
 
 import co.laomag.es_spider.mapper.UserinfoMapper;
 import co.laomag.es_spider.models.Userinfo;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -26,6 +28,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (userinfo==null){
             throw new UsernameNotFoundException("用名或密码不对");
         }
-        return null;
+        User user = new User(username,userinfo.getUserPassword(), AuthorityUtils.
+                commaSeparatedStringToAuthorityList("ycz,admin"));
+        return user;
     }
 }

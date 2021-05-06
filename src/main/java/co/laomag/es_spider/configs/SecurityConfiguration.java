@@ -41,9 +41,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin().loginProcessingUrl("/logggggggg");
-        super.configure(http);
+        http.formLogin()
+                .loginPage("/login.html")
+                .loginProcessingUrl("/login")
+                .successForwardUrl("/login1")
+                .and()
+                .authorizeRequests()
+                .antMatchers("/login.html").permitAll()
+                .anyRequest().authenticated();
+//        super.configure(http);
+        http.csrf().disable();
     }
+
 
     /**
      * 拦截请求
