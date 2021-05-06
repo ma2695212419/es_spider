@@ -41,15 +41,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        //表单提交
         http.formLogin()
                 .loginPage("/login.html")
                 .loginProcessingUrl("/login")
                 .successForwardUrl("/login1")
                 .and()
+                //授权
                 .authorizeRequests()
                 .antMatchers("/login.html").permitAll()
                 .anyRequest().authenticated();
 //        super.configure(http);
+        //关闭csrf防护
         http.csrf().disable();
     }
 
