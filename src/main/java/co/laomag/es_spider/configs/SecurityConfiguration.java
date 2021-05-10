@@ -45,7 +45,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.formLogin()
                 .loginPage("/login.html")
                 .loginProcessingUrl("/login")
-                .successForwardUrl("/login1")
+//                .successForwardUrl("/login1")
                 .and()
                 //授权
                 .authorizeRequests()

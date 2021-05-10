@@ -1,9 +1,12 @@
 spring:
+  thymeleaf:
+    cache: false
   elasticsearch:
     rest:
       uris: http://140.143.227.59:9200
 
   datasource:
     url: jdbc:sqlite:src/main/resources/db/es.spider
+    driver-class-name: org.sqlite.JDBC
 mybatis:
   mapper-locations: classpath:/db/mapper/*.xml
