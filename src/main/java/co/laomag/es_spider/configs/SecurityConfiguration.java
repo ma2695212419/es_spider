@@ -51,6 +51,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 //授权
                 .authorizeRequests()
                 .antMatchers("/login.html").permitAll()
+                .antMatchers("/swagger-ui.html").permitAll()
+                .antMatchers("/webjars/**").permitAll()
+                .antMatchers("/v2/**").permitAll()
+                .antMatchers("/swagger-resources/**").permitAll()
                 .anyRequest().authenticated();
 //        super.configure(http);
         //关闭csrf防护
