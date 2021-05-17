@@ -1,5 +1,6 @@
 package co.laomag.es_spider.configs;
 
+import co.laomag.es_spider.handler.MyAuthenticationSuccessHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -45,17 +46,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.formLogin()
                 .loginPage("/login.html")
                 .loginProcessingUrl("/login")
-//                .successForwardUrl("/login1")
+                .successHandler(new MyAuthenticationSuccessHandler("https://www.bilibili.com/"))
                 .and()
                 //授权
                 .authorizeRequests()
                 .antMatchers("/login.html").permitAll()
+                .antMatchers("/swagger-ui.html").permitAll()
+                .antMatchers("/webjars/**").permitAll()
+                .antMatchers("/v2/**").permitAll()
+                .antMatchers("/swagger-resources/**").permitAll()
                 .anyRequest().authenticated();
 //        super.configure(http);
         //关闭csrf防护
         http.csrf().disable();
     }
-
 
     /**
      * 拦截请求
