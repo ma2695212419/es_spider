@@ -25,7 +25,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         //attempt Authentication when Content-Type is json
-        if(request.getContentType().equals(MediaType.APPLICATION_JSON_UTF8_VALUE)
+        if(request.getContentType().equals(MediaType.APPLICATION_JSON_VALUE)
                 ||request.getContentType().equals(MediaType.APPLICATION_JSON_VALUE)){
 
             //use jackson to deserialize json

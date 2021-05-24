@@ -1,0 +1,27 @@
+
+-- auto Generated on 2021-05-24
+-- DROP TABLE IF EXISTS menu_list_vo;
+CREATE TABLE menu_list_vo(
+	id VARCHAR (50) NOT NULL COMMENT '菜单ID',
+	`name` VARCHAR (50) NOT NULL DEFAULT '' COMMENT '菜单名称',
+	icon VARCHAR (50) NOT NULL DEFAULT '' COMMENT '图标',
+	url VARCHAR (50) NOT NULL DEFAULT '' COMMENT 'URL地址',
+	param VARCHAR (50) NOT NULL DEFAULT '' COMMENT '参数',
+	pid VARCHAR (50) NOT NULL DEFAULT '' COMMENT '上级ID',
+	`type` INT (11) NOT NULL DEFAULT -1 COMMENT '类型：1模块 2导航 3菜单 4节点',
+	type_name VARCHAR (50) NOT NULL DEFAULT '' COMMENT '类型描述',
+	permission VARCHAR (50) NOT NULL DEFAULT '' COMMENT '权限标识',
+	`status` INT (11) NOT NULL DEFAULT -1 COMMENT '是否显示：1显示 2不显示',
+	status_name VARCHAR (50) NOT NULL DEFAULT '' COMMENT '是否显示描述',
+	is_public INT (11) NOT NULL DEFAULT -1 COMMENT '是否公共：1是 2否',
+	is_public_name VARCHAR (50) NOT NULL DEFAULT '' COMMENT '是否公共描述',
+	note VARCHAR (50) NOT NULL DEFAULT '' COMMENT '菜单备注',
+	sort INT (11) NOT NULL DEFAULT -1 COMMENT '显示顺序',
+	create_user VARCHAR (50) NOT NULL DEFAULT '' COMMENT '创建人',
+	create_user_name VARCHAR (50) NOT NULL DEFAULT '' COMMENT '创建人名称',
+	create_time DATETIME NOT NULL DEFAULT '1000-01-01 00:00:00' COMMENT '创建时间',
+	update_user VARCHAR (50) NOT NULL DEFAULT '' COMMENT '更新人',
+	update_user_name VARCHAR (50) NOT NULL DEFAULT '' COMMENT '更新人名称',
+	update_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+	PRIMARY KEY (id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT 'menu_list_vo';

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class PageController {
 
     @RequestMapping("/index")
-    public String login(Model model) {
+    public String Index(Model model) {
         model.addAttribute("fullName","爬虫数据平台");
         model.addAttribute("nickName","nickName");
         model.addAttribute("version","version");
@@ -28,6 +28,14 @@ public class PageController {
         model.addAttribute("realname","侧耳");
 
         return "index";
+    }
+
+
+    @RequestMapping("/main")
+    public String Main(Model model) {
+
+
+        return "main";
     }
 
 

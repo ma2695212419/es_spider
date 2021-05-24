@@ -3,6 +3,7 @@ package co.laomag.es_spider.configs;
 import co.laomag.es_spider.handler.MyAuthenticationSuccessHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,6 +14,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.ForwardAuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -70,12 +72,27 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/swagger-resources/**").permitAll()
                 .antMatchers("/static/**").permitAll()
                 .antMatchers("/assets/**").permitAll()
+//                .antMatchers("/main").hasAnyAuthority("main")
                 .anyRequest().authenticated();
 //        super.configure(http);
+        http.exceptionHandling().accessDeniedHandler(new AccessDeniedHandler() {
+            @Override
+            public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException, ServletException {
+                response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+                // 设置响应头
+                response.setHeader("Content-Type", "application/json;charset=utf-8");
+                PrintWriter printWriter = response.getWriter();
+                // 向页面中写内容
+                printWriter.write("{\"status\":\"error\",\"msg\":\"权限不足，请联系管理员！\",\"code\":\"403\"}");
+                printWriter.flush();
+                printWriter.close();
+            }
+        });
         //关闭csrf防护
         http.csrf().disable();
         http.addFilterAt(customAuthenticationFilter(),
                 UsernamePasswordAuthenticationFilter.class);
+        http.headers().frameOptions().sameOrigin();
     }
 
     /**
