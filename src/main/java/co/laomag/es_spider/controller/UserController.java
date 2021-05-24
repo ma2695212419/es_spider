@@ -18,6 +18,8 @@ public class UserController {
     @Resource
     UserService userService;
 
+
+
     @PostMapping("/adduser")
     public RequestMessages AddUser(Userinfo userinfo){
         return userService.AddUser(userinfo);

@@ -1,6 +1,23 @@
 spring:
   thymeleaf:
+    # 默认true,开发是设置false,上线是设置为true以便提高性能
+    # 开发时关闭缓存,不然没法看到实时页面
     cache: false
+    enabled: true  #开启thymeleaf视图解析
+    encoding: UTF-8
+    #模板的模式，支持 HTML, XML TEXT JAVASCRIPT
+    #严格的HTML语法模式
+    mode: HTML
+    # 指定模板所在的目录
+    prefix: classpath:/templates/
+    #后缀名
+    suffix: .html
+    #    # 检查模板路径是否存在
+    #    check-template-location: true
+    servlet:
+      content-type: text/html
+  #    enabled: true
+  #    check-template: false
   elasticsearch:
     rest:
       uris: http://140.143.227.59:9200
@@ -8,5 +25,7 @@ spring:
   datasource:
     url: jdbc:sqlite:src/main/resources/db/es.spider
     driver-class-name: org.sqlite.JDBC
+  mvc:
+    static-path-pattern: /static/**
 mybatis:
   mapper-locations: classpath:/db/mapper/*.xml
