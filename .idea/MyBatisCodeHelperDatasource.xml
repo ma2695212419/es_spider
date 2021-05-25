@@ -18,8 +18,6 @@
                   <option name="javaMapperPath" value="$PROJECT_DIR$/src/main/java" />
                   <option name="javaModelPacakge" value="co.laomag.es_spider.models" />
                   <option name="javaModelPath" value="$PROJECT_DIR$/src/main/java" />
-                  <option name="javaServiceInterfacePath" value="$PROJECT_DIR$/src/main/java" />
-                  <option name="javaServicePath" value="$PROJECT_DIR$/src/main/java" />
                   <option name="xmlPackage" value="db.mapper" />
                   <option name="xmlPath" value="$PROJECT_DIR$/src/main/resources" />
                 </UserPackageAndPathInfoByModule>
@@ -29,14 +27,56 @@
         </option>
         <option name="tableGenerateConfigs">
           <map>
+            <entry key="main:menu">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="Menu" />
+                  <option name="moduleName" value="es_spider" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="main:role_menu">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="RoleMenu" />
+                  <option name="moduleName" value="es_spider" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="main:roles">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="Roles" />
+                  <option name="moduleName" value="es_spider" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="main:sqlite_master">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="SqliteMaster" />
+                  <option name="moduleName" value="es_spider" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="main:user_roles">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="UserRoles" />
+                  <option name="moduleName" value="es_spider" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
             <entry key="main:userinfo">
               <value>
                 <TableGenerateConfig>
-                  <option name="generatedKey" value="" />
                   <option name="javaModelName" value="Userinfo" />
                   <option name="moduleName" value="es_spider" />
-                  <option name="sequenceColumn" value="" />
-                  <option name="sequenceId" value="" />
                   <option name="useActualColumnName" value="false" />
                 </TableGenerateConfig>
               </value>

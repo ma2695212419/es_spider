@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.laomag.es_spider.mapper.SqliteMasterMapper">
+  <resultMap id="BaseResultMap" type="co.laomag.es_spider.models.SqliteMaster">
+    <!--@mbg.generated-->
+    <!--@Table sqlite_master-->
+    <result column="type" jdbcType="LONGVARCHAR" property="type" />
+    <result column="name" jdbcType="LONGVARCHAR" property="name" />
+    <result column="tbl_name" jdbcType="LONGVARCHAR" property="tblName" />
+    <result column="rootpage" jdbcType="INTEGER" property="rootpage" />
+    <result column="sql" jdbcType="LONGVARCHAR" property="sql" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    "type", "name", tbl_name, rootpage, "sql"
+  </sql>
+  <insert id="insert" parameterType="co.laomag.es_spider.models.SqliteMaster">
+    <!--@mbg.generated-->
+    insert into sqlite_master ("type", "name", tbl_name, 
+      rootpage, "sql")
+    values (#{type,jdbcType=LONGVARCHAR}, #{name,jdbcType=LONGVARCHAR}, #{tblName,jdbcType=LONGVARCHAR}, 
+      #{rootpage,jdbcType=INTEGER}, #{sql,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="co.laomag.es_spider.models.SqliteMaster">
+    <!--@mbg.generated-->
+    insert into sqlite_master
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="type != null">
+        "type",
+      </if>
+      <if test="name != null">
+        "name",
+      </if>
+      <if test="tblName != null">
+        tbl_name,
+      </if>
+      <if test="rootpage != null">
+        rootpage,
+      </if>
+      <if test="sql != null">
+        "sql",
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="type != null">
+        #{type,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="tblName != null">
+        #{tblName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="rootpage != null">
+        #{rootpage,jdbcType=INTEGER},
+      </if>
+      <if test="sql != null">
+        #{sql,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.laomag.es_spider.mapper.MenuMapper">
+  <resultMap id="BaseResultMap" type="co.laomag.es_spider.models.Menu">
+    <!--@mbg.generated-->
+    <!--@Table menu-->
+    <id column="id" jdbcType="LONGVARCHAR" property="id" />
+    <result column="name" jdbcType="LONGVARCHAR" property="name" />
+    <result column="icon" jdbcType="LONGVARCHAR" property="icon" />
+    <result column="url" jdbcType="LONGVARCHAR" property="url" />
+    <result column="param" jdbcType="LONGVARCHAR" property="param" />
+    <result column="pid" jdbcType="LONGVARCHAR" property="pid" />
+    <result column="type" jdbcType="LONGVARCHAR" property="type" />
+    <result column="type_name" jdbcType="LONGVARCHAR" property="typeName" />
+    <result column="permission" jdbcType="LONGVARCHAR" property="permission" />
+    <result column="status" jdbcType="LONGVARCHAR" property="status" />
+    <result column="status_name" jdbcType="LONGVARCHAR" property="statusName" />
+    <result column="is_public" jdbcType="LONGVARCHAR" property="isPublic" />
+    <result column="is_public_name" jdbcType="LONGVARCHAR" property="isPublicName" />
+    <result column="note" jdbcType="LONGVARCHAR" property="note" />
+    <result column="sort" jdbcType="LONGVARCHAR" property="sort" />
+    <result column="create_user" jdbcType="LONGVARCHAR" property="createUser" />
+    <result column="create_user_name" jdbcType="LONGVARCHAR" property="createUserName" />
+    <result column="create_time" jdbcType="LONGVARCHAR" property="createTime" />
+    <result column="update_user" jdbcType="LONGVARCHAR" property="updateUser" />
+    <result column="update_user_name" jdbcType="LONGVARCHAR" property="updateUserName" />
+    <result column="update_time" jdbcType="LONGVARCHAR" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, "name", icon, url, param, pid, "type", type_name, permission, "status", status_name, 
+    is_public, is_public_name, note, sort, create_user, create_user_name, create_time, 
+    update_user, update_user_name, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from menu
+    where id = #{id,jdbcType=LONGVARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from menu
+    where id = #{id,jdbcType=LONGVARCHAR}
+  </delete>
+  <insert id="insert" parameterType="co.laomag.es_spider.models.Menu">
+    <!--@mbg.generated-->
+    insert into menu (id, "name", icon, 
+      url, param, pid, 
+      "type", type_name, permission, 
+      "status", status_name, is_public, 
+      is_public_name, note, sort, 
+      create_user, create_user_name, create_time, 
+      update_user, update_user_name, update_time
+      )
+    values (#{id,jdbcType=LONGVARCHAR}, #{name,jdbcType=LONGVARCHAR}, #{icon,jdbcType=LONGVARCHAR}, 
+      #{url,jdbcType=LONGVARCHAR}, #{param,jdbcType=LONGVARCHAR}, #{pid,jdbcType=LONGVARCHAR}, 
+      #{type,jdbcType=LONGVARCHAR}, #{typeName,jdbcType=LONGVARCHAR}, #{permission,jdbcType=LONGVARCHAR}, 
+      #{status,jdbcType=LONGVARCHAR}, #{statusName,jdbcType=LONGVARCHAR}, #{isPublic,jdbcType=LONGVARCHAR}, 
+      #{isPublicName,jdbcType=LONGVARCHAR}, #{note,jdbcType=LONGVARCHAR}, #{sort,jdbcType=LONGVARCHAR}, 
+      #{createUser,jdbcType=LONGVARCHAR}, #{createUserName,jdbcType=LONGVARCHAR}, #{createTime,jdbcType=LONGVARCHAR}, 
+      #{updateUser,jdbcType=LONGVARCHAR}, #{updateUserName,jdbcType=LONGVARCHAR}, #{updateTime,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="co.laomag.es_spider.models.Menu">
+    <!--@mbg.generated-->
+    insert into menu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        "name",
+      </if>
+      <if test="icon != null">
+        icon,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="param != null">
+        param,
+      </if>
+      <if test="pid != null">
+        pid,
+      </if>
+      <if test="type != null">
+        "type",
+      </if>
+      <if test="typeName != null">
+        type_name,
+      </if>
+      <if test="permission != null">
+        permission,
+      </if>
+      <if test="status != null">
+        "status",
+      </if>
+      <if test="statusName != null">
+        status_name,
+      </if>
+      <if test="isPublic != null">
+        is_public,
+      </if>
+      <if test="isPublicName != null">
+        is_public_name,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="createUserName != null">
+        create_user_name,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="updateUserName != null">
+        update_user_name,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="icon != null">
+        #{icon,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="param != null">
+        #{param,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="typeName != null">
+        #{typeName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="permission != null">
+        #{permission,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="statusName != null">
+        #{statusName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="isPublic != null">
+        #{isPublic,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="isPublicName != null">
+        #{isPublicName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="createUserName != null">
+        #{createUserName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="updateUserName != null">
+        #{updateUserName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="co.laomag.es_spider.models.Menu">
+    <!--@mbg.generated-->
+    update menu
+    <set>
+      <if test="name != null">
+        "name" = #{name,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="icon != null">
+        icon = #{icon,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="param != null">
+        param = #{param,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="pid != null">
+        pid = #{pid,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="type != null">
+        "type" = #{type,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="typeName != null">
+        type_name = #{typeName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="permission != null">
+        permission = #{permission,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="status != null">
+        "status" = #{status,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="statusName != null">
+        status_name = #{statusName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="isPublic != null">
+        is_public = #{isPublic,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="isPublicName != null">
+        is_public_name = #{isPublicName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="createUserName != null">
+        create_user_name = #{createUserName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="updateUserName != null">
+        update_user_name = #{updateUserName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=LONGVARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="co.laomag.es_spider.models.Menu">
+    <!--@mbg.generated-->
+    update menu
+    set "name" = #{name,jdbcType=LONGVARCHAR},
+      icon = #{icon,jdbcType=LONGVARCHAR},
+      url = #{url,jdbcType=LONGVARCHAR},
+      param = #{param,jdbcType=LONGVARCHAR},
+      pid = #{pid,jdbcType=LONGVARCHAR},
+      "type" = #{type,jdbcType=LONGVARCHAR},
+      type_name = #{typeName,jdbcType=LONGVARCHAR},
+      permission = #{permission,jdbcType=LONGVARCHAR},
+      "status" = #{status,jdbcType=LONGVARCHAR},
+      status_name = #{statusName,jdbcType=LONGVARCHAR},
+      is_public = #{isPublic,jdbcType=LONGVARCHAR},
+      is_public_name = #{isPublicName,jdbcType=LONGVARCHAR},
+      note = #{note,jdbcType=LONGVARCHAR},
+      sort = #{sort,jdbcType=LONGVARCHAR},
+      create_user = #{createUser,jdbcType=LONGVARCHAR},
+      create_user_name = #{createUserName,jdbcType=LONGVARCHAR},
+      create_time = #{createTime,jdbcType=LONGVARCHAR},
+      update_user = #{updateUser,jdbcType=LONGVARCHAR},
+      update_user_name = #{updateUserName,jdbcType=LONGVARCHAR},
+      update_time = #{updateTime,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=LONGVARCHAR}
+  </update>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List">
+    </include>
+    from  menu
+  </select>
+</mapper>

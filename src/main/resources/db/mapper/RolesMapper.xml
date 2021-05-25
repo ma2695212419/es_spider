@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.laomag.es_spider.mapper.RolesMapper">
+  <resultMap id="BaseResultMap" type="co.laomag.es_spider.models.Roles">
+    <!--@mbg.generated-->
+    <!--@Table roles-->
+    <id column="id" jdbcType="LONGVARCHAR" property="id" />
+    <result column="name" jdbcType="LONGVARCHAR" property="name" />
+    <result column="status" jdbcType="LONGVARCHAR" property="status" />
+    <result column="updated_time" jdbcType="LONGVARCHAR" property="updatedTime" />
+    <result column="created_time" jdbcType="LONGVARCHAR" property="createdTime" />
+    <result column="is_delete" jdbcType="LONGVARCHAR" property="isDelete" />
+    <result column="operator" jdbcType="LONGVARCHAR" property="operator" />
+    <result column="remark" jdbcType="LONGVARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, "name", "status", updated_time, created_time, is_delete, "operator", remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from roles
+    where id = #{id,jdbcType=LONGVARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from roles
+    where id = #{id,jdbcType=LONGVARCHAR}
+  </delete>
+  <insert id="insert" parameterType="co.laomag.es_spider.models.Roles">
+    <!--@mbg.generated-->
+    insert into roles (id, "name", "status", 
+      updated_time, created_time, is_delete, 
+      "operator", remark)
+    values (#{id,jdbcType=LONGVARCHAR}, #{name,jdbcType=LONGVARCHAR}, #{status,jdbcType=LONGVARCHAR}, 
+      #{updatedTime,jdbcType=LONGVARCHAR}, #{createdTime,jdbcType=LONGVARCHAR}, #{isDelete,jdbcType=LONGVARCHAR}, 
+      #{operator,jdbcType=LONGVARCHAR}, #{remark,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="co.laomag.es_spider.models.Roles">
+    <!--@mbg.generated-->
+    insert into roles
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        "name",
+      </if>
+      <if test="status != null">
+        "status",
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="operator != null">
+        "operator",
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="co.laomag.es_spider.models.Roles">
+    <!--@mbg.generated-->
+    update roles
+    <set>
+      <if test="name != null">
+        "name" = #{name,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="status != null">
+        "status" = #{status,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        updated_time = #{updatedTime,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="createdTime != null">
+        created_time = #{createdTime,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="operator != null">
+        "operator" = #{operator,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=LONGVARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="co.laomag.es_spider.models.Roles">
+    <!--@mbg.generated-->
+    update roles
+    set "name" = #{name,jdbcType=LONGVARCHAR},
+      "status" = #{status,jdbcType=LONGVARCHAR},
+      updated_time = #{updatedTime,jdbcType=LONGVARCHAR},
+      created_time = #{createdTime,jdbcType=LONGVARCHAR},
+      is_delete = #{isDelete,jdbcType=LONGVARCHAR},
+      "operator" = #{operator,jdbcType=LONGVARCHAR},
+      remark = #{remark,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=LONGVARCHAR}
+  </update>
+</mapper>
